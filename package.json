@@ -5,10 +5,12 @@
   "author": "Markus Becker <mtib.becker@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "clean": "rm dist/bundle.js",
+    "clean": "rm -rf dist/",
     "start": "parcel serve src/index.html",
-    "build-prod": "parcel build src/index.html",
-    "test": "jest"
+    "build": "parcel build src/index.html",
+    "test": "jest",
+    "predeploy": "yarn clean; yarn build",
+    "deploy": "gh-pages -d dist --remote github"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.0",
@@ -26,6 +28,7 @@
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "babel-jest": "^27.4.5",
+    "gh-pages": "^3.2.3",
     "jest": "^27.4.5",
     "parcel-bundler": "^1.12.5"
   }
