@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "start": "parcel serve src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build --public-url ./ src/index.html",
     "test": "jest",
     "predeploy": "yarn clean; yarn build",
     "deploy": "gh-pages -d dist --remote github"
