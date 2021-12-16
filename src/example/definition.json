@@ -1,0 +1,76 @@
+{
+    "slides": [
+        {
+            "url": "https://github.com/mtib",
+            "weight": 3,
+            "conditions": [
+                {
+                    "type": "logic",
+                    "operation": "or",
+                    "conditions": [
+                        {
+                            "type": "fetchStatus",
+                            "url": "https://api.github.com",
+                            "inBounds": [
+                                200,
+                                300
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "day",
+                    "inArray": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                    ]
+                },
+                {
+                    "type": "month",
+                    "inBounds": [
+                        10,
+                        2
+                    ]
+                },
+                {
+                    "type": "logic",
+                    "operation": "not",
+                    "conditions": [
+                        {
+                            "type": "time",
+                            "hour": {
+                                "inBounds": [
+                                    8,
+                                    15
+                                ]
+                            },
+                            "minute": {
+                                "inArray": [
+                                    0
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "time",
+                    "hour": {
+                        "inBounds": [
+                            20,
+                            4
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "settings": {
+        "unitTimeMs": 5000,
+        "backgroundColor": "#fff",
+        "hardRefreshMin": 180,
+        "softRefreshMin": 60
+    }
+}

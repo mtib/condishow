@@ -4,5 +4,6 @@
         "locally served": {
             "baseurl": "http://localhost:1234",
         }
-    }
+    },
+    "autoHide.autoHideSideBar": false
 }
