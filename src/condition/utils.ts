@@ -1,12 +1,12 @@
 import { ConditionDefinitionNode } from "../definition/types";
-import { AbstractCondition } from "./types";
+import { AbstractCondition, ConditionEvaluator, ConditionGenerator, ConditionMetaData } from "./types";
 
-export const wrapCondition = (func: (definition: ConditionDefinitionNode) => () => boolean, name: string) => {
+export const wrapCondition = (func: ConditionGenerator, name: string) => {
     const innerFunc = func as AbstractCondition;
     innerFunc.conditionName = name;
     innerFunc.toString = () => innerFunc.conditionName;
     const wrap = (definition: ConditionDefinitionNode) => {
-        const conditionEvaluator = innerFunc(definition);
+        const conditionEvaluator = innerFunc(definition) as ConditionEvaluator & ConditionMetaData;
         conditionEvaluator.conditionType = wrap.conditionType;
         conditionEvaluator.conditionName = wrap.conditionName;
         return conditionEvaluator;

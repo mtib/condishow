@@ -4,7 +4,7 @@ export type ConditionDefinitionNode = {
     inBounds?: [number, number],
     inArray?: [number],
     conditions?: ConditionDefinitionNode[],
-};
+} | ConditionDefinitionNode[];
 
 export type Slide = {
     url: string,
